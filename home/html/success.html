@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            margin-top: 50px;
+        }
+        h1 {
+            color: #28a745;
+        }
+.price-circle {
+        height: 250px;
+        width: 250px;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0);
+        animation: zoomIn 0.5s forwards;
+}
+
+
+@keyframes zoomIn {
+    to {
+        transform: scale(1);
+    }
+}
+
+
+    .price-circle:hover {
+        transform: translateY(-10px) scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        img {
+            margin-top: 20px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order Placed Successfully!</h1>
+    <div class="price-circle">
+        <!-- This value should be fetched dynamically -->
+        <img src="image/tick.png" alt="">
+    </div>
+    <img src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif" alt="Success GIF">
+</body>
+
+
+
+
+</html>

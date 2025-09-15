@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Toy</title>
+    <link rel="stylesheet" href="buy.css">
+</head>
+<body>
+    <div class="container">
+        <div class="product-details">
+            <h2 id="item-name"></h2>
+            <img id="item-image" alt="Toy Image">
+            <p id="item-price"></p>
+        </div>
+
+        <div class="order-details">  
+            <h3>Order Details</h3>
+            <form id="order-form" method="post" action="buy.php">
+                <input type="hidden" name="item-name" id="item-name-hidden">
+                <input type="hidden" name="item-image" id="item-image-hidden">
+                <input type="hidden" name="item-price" id="item-price-hidden">
+
+                <label for="customer-name">Name:</label>
+                <input type="text" id="customer-name" name="customer-name" required>
+
+                <label for="customer-email">Email:</label>
+                <input type="email" id="customer-email" name="customer-email" required>
+
+                <label for="customer-address">Address:</label>
+                <textarea id="customer-address" name="customer-address" rows="4" required></textarea>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+
+                <label for="payment-method">Payment Method:</label>
+                <select id="upi_id" name="upi_id" required>
+                    <option value="bank">Bank Transfer</option>
+                    <option value="upi">UPI</option>
+                    <option value="cash">Cash on Delivery</option>
+                </select>
+
+                <button type="submit">Proceed to Pay</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+    
+        const itemName = getQueryParameter('name');
+        const itemImage = getQueryParameter('image');
+        const itemPrice = getQueryParameter('price');
+    
+        document.getElementById('item-name').textContent = itemName;
+        document.getElementById('item-image').src = itemImage;
+        document.getElementById('item-price').textContent = itemPrice;
+    
+        document.getElementById('item-name-hidden').value = itemName;
+        document.getElementById('item-image-hidden').value = itemImage;
+        document.getElementById('item-price-hidden').value = itemPrice;
+
+        document.getElementById('order-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const paymentMethod = document.getElementById('upi_id').value;
+            this.action = paymentMethod + ".php";
+            this.submit();
+        });
+    </script>
+</body>
+</html>

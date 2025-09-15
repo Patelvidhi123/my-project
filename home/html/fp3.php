@@ -1,0 +1,204 @@
+<?php
+session_start(); // Start the session
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Submission</title>
+    <link rel="stylesheet" type="text/css" href="fp3.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <style>
+        .slider {
+            max-width: 200px;
+            position: relative;
+            margin: auto;
+            top:200px;
+            left:100px;
+        }
+
+        .slides {
+            display: none;
+            width: 100px;
+            height: 100px;
+           
+        }
+
+        .slider-nav {
+            text-align:center;
+            position: absolute;
+            width: 100%;
+            bottom: 0px;
+        }
+
+        .slider-nav span {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: rgb(255, 85, 0);
+            display: inline-block;
+            border-radius: 50%;
+        }
+
+        .slider-nav span.active {
+            background-color: rgb(23, 185, 255);
+        }
+    </style>
+</head>
+<body style="background-image: url('image/2.jpg'); background-size:auto; background-repeat: no-repeat; width: 100%;">
+    <div class="img">
+        <img src="image/toy1.png" alt="Toy Image">
+    </div>
+    <center><h1 class="title">TOY FOR ALL AGES</h1>
+    <p class="cp">
+    "Discover and shop the coolest toys for all ages, where fun meets imagination!"<br> Toys for all ages are fun, educational, and safe.<br> Explore our wide variety of toys and find the perfect one for your loved ones!<br> Toy is not for only kids  <br>it for all sell and buy both.</p>
+    </center>
+
+    <div class="btn">
+        <input type="submit" name="submit" value="LOGIN" onclick="goToLoginPage()">
+    </div>
+
+    <div class="img1">
+        <img src="image/c3pl-removebg-preview.png" alt="">
+    </div>
+
+
+
+
+
+
+
+
+   <!-- User Info Section -->
+   <div class="user-info">
+    <img src="image/user.png" alt="User Icon" class="user-icon">
+    <div class="username">
+        <?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : ''; ?>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <nav> 
+        <ul class="nav-menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="service1.php">Services</a></li>
+        </ul>
+    </nav>
+
+    <center><input type="button" class="get-started" value="Get started" onclick="goToNextPage()"></center>
+
+    <!-- Slider Section -->
+    <div class="slider">
+        <img class="slides" src="image/f3img.jpeg" alt="Image 1">
+        <img class="slides" src="image/f2img.png" alt="Image 2">
+        <img class="slides" src="image/fimg.png" alt="Image 3">
+        <div class="slider-nav">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+
+    <video width="320" height="240" controls>
+        <source src="image/v.mp4" type="video/mp4">
+    </video>
+
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section contact">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:abc@gmail.com">example@gmail.com</a></p>
+                <p>Phone: +77 7777777777</p>
+            </div>
+            <div class="footer-section social-media">
+                <h3>Follow Us</h3>
+                <a href="#"><img src="image/facebook.png" alt="Facebook" class="social-icon"></a>
+                <a href="https://x.com/home?lang=en"><img src="image/twitter.png" alt="Twitter" class="social-icon"></a>
+                <a href="https://www.instagram.com/?utm_source=pwa_homescreen&__pwa=1"><img src="image/instagram.png" alt="Instagram" class="social-icon"></a>
+                <a href="#"><img src="image/linkedin.png" alt="Instagram" class="social-icon"></a>
+            </div>
+            <div class="footer-section photos">
+                <h3>Gallery</h3>
+                <img src="image/fimg.png" alt="Photo 1" class="footer-photo">
+                <img src="image/f2img.png" alt="Photo 2" class="footer-photo">
+                <img src="image/f3img.jpeg" alt="Photo 3" class="footer-photo">
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Toy For All Ages | Designed by Er.VIDHI KALARIYA
+        </div>
+    </footer>
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("slides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 4000); // Change image every 2 seconds
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            showSlides();
+        }
+
+
+
+        function goToNextPage() {
+        location.href = 'home.html'; 
+    }
+
+
+
+
+    function goToLoginPage() {
+        location.href = 'f.php'; 
+    }
+
+
+
+    </script>
+</body>
+</html>

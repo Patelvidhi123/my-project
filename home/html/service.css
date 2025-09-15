@@ -1,0 +1,186 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body & Font */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+
+
+/* Hero Section */
+.hero {
+    background: #d0e77f;
+    color: #000000;
+    padding: 40px 2px;
+    text-align: center;
+    border-radius: 30px;
+
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+}
+
+/* Service Container */
+.service-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.service {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 220px;
+    height: 300px;
+}
+
+.service:hover {
+    transform: scale(1.05); /* Slightly zooms in the card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increases shadow on hover */
+}
+
+.service-icon {
+    font-size: 2.5em;
+    color: #545454;
+    margin-bottom: 15px;
+}
+
+
+.service:hover .service-icon {
+    color: #007bff; /* Darker color on hover */
+}
+
+
+.service h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+
+.service:hover h2 {
+    color: #afa83f; /* Change heading color on hover */
+}
+
+
+
+.service p {
+    font-size: 1em;
+    color: #666;
+}
+
+
+
+.service:hover p {
+    color: #444; /* Darker color for better readability on hover */
+}
+
+/* Footer */
+footer {
+    background: #424d09;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Feedback Section */
+.feedback-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Feedback Bar */
+.feedback-bar {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Feedback Images */
+.feedback-images {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.feedback-image {
+    width: 100px;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+}
+
+.feedback-image:hover,
+.feedback-image.selected {
+    border-color: #007bff;
+}
+
+/* Feedback Form */
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    resize: none;
+}
+
+.feedback-form button {
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-form button:hover {
+    background-color: #0056b3;
+}

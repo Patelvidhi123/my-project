@@ -1,0 +1,143 @@
+<body onload="showWishlist()">
+
+<div class="h">
+   <center> <h1>(O v O)    Your Wishlist    (O v O)</h1></center>
+
+
+    <div id="wishlist" class="wishlist-container">
+       
+        <!-- Wishlist items will be displayed here -->
+    </div>
+    
+    <script>
+    function showWishlist() {
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        let wishlistDiv = document.getElementById('wishlist');
+        wishlistDiv.innerHTML = '';
+    
+        wishlist.forEach((item, index) => {
+            wishlistDiv.innerHTML += `
+                <div class="toy-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="details">
+                        <p>${item.name}</p>
+                        <p>${item.price}</p>
+                    </div>
+                    <div class="actions">
+                        <button class="buy-btn" onclick="buyItem('${item.image}', '${item.name}', '${item.price}')">Buy</button>
+                        <button class="remove-btn" onclick="removeItem(${index})">Remove</button>
+                    </div>
+                </div>
+            `;
+        });
+    }
+
+    function buyItem(image, name, price) {
+        location.href = `buy.html?image=${encodeURIComponent(image)}&name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}`;
+    }
+
+    function removeItem(index) {
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        wishlist.splice(index, 1);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        showWishlist();
+    }
+    </script>
+
+    <style>
+
+
+.h{
+
+
+    font-family:cursive;
+    color: rgb(239, 83, 83);
+
+}
+
+
+.h:hover{
+
+    font-size: large;
+    color:#f10e0a;
+
+}
+
+
+    .wishlist-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        
+    }
+
+    .toy-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #b1b0b0;
+        border-radius: 8px;
+        width: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+        transition: transform 0.2s;
+       
+    }
+
+    .toy-item:hover {
+        transform: scale(1.02);
+    }
+
+    .toy-item img {
+        width: 100px;
+        height: 100px;
+        margin-right: 20px;
+        border-radius: 8px;
+    }
+
+    .details {
+        flex-grow: 1;
+        margin-right: 20px;
+    }
+
+    .toy-item p {
+        margin: 0;
+        font-size: 16px;
+        color: #333;
+    }
+
+    .actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .buy-btn, .remove-btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .buy-btn {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .buy-btn:hover {
+        background-color: #45a049;
+    }
+
+    .remove-btn {
+        background-color: #f44336;
+        color: white;
+    }
+
+    .remove-btn:hover {
+        background-color: #e53935;
+    }
+    </style>
+</body>
