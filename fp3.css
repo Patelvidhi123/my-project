@@ -237,62 +237,7 @@ video {
 /* 📱 Responsive Fixes */
 /* ============================= */
 
-/* Tablet view */
-@media (max-width: 1024px) {
-  .nav-menu {
-    right: auto;
-    left: 50%;
-    transform: translateX(-50%);
-    top: auto;
-    position: relative;
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 
-  video {
-    position: relative;
-    top: auto;
-    left: auto;
-    margin: 20px auto;
-    max-width: 90%;
-    display: block;
-  }
-
-  .btn {
-    position: relative;
-    top: auto;
-    right: auto;
-    text-align: center;
-    margin: 20px 0;
-  }
-
-  .img1 {
-    position: relative;
-    top: auto;
-    right: auto;
-    text-align: center;
-    margin: 15px 0;
-  }
-
-  .img img {
-    position: relative;
-    left: auto;
-    margin: 0 auto;
-    display: block;
-  }
-
-  .footer {
-    margin-top: 50px;
-    width: 100%;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-}
 
 /* Mobile view */
 @media (max-width: 600px) {
@@ -337,4 +282,5 @@ video {
     width: 90%;
   }
 }
+
 
