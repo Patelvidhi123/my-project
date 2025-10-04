@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+.toy-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.toy-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.toy-item:hover {
+    transform: rotate(5deg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.toy-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.toy-item p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.buy-btn, .wishlist-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+ 
+.buy-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.wishlist-btn {
+    background-color: #ff851b;
+    color: white;
+}
+
+.buy-btn:hover, .wishlist-btn:hover {
+    opacity: 0.8;
+}
+
+.out-of-stock {
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toys for 19-28 Years</title>
+    <link rel="stylesheet" type="text/css" href="19-28.css">
+</head>
+<body>
+
+
+<section>
+<div class="container">
+    <h2>Toys for 19-28 Years</h2>
+    <div class="toy-grid">
+        <div class="toy-item">
+            <img src="image/19281.jpg" alt="Toy 1">
+            <p>$10</p>
+             <button class="buy-btn" onclick="buyItem('image/19281.jpg','Toy 1','$10')">Buy</button>
+            <button class="wishlist-btn" onclick="addToWishlist('image/19281.jpg','Toy 1','$10')">Wishlist</button>
+
+        </div>
+        <div class="toy-item">
+            <img src="image/19282.png" alt="Toy 2">
+            <p>$15</p>
+             <button class="buy-btn" onclick="buyItem('image/19282.png','Toy 2','$15')">Buy</button>
+            <button class="wishlist-btn" onclick="addToWishlist('image/19282.png','Toy 2','$15')">Wishlist</button>
+
+        </div>
+        <div class="toy-item">
+            <img src="image/19283.jpg" alt="Toy 3">
+            <p>$20</p>
+             <button class="buy-btn" onclick="buyItem('image/19283.jpg','Toy 3','$20')">Buy</button>
+            <button class="wishlist-btn" onclick="addToWishlist('image/19283.jpg','Toy 3','$20')">Wishlist</button>
+
+        </div>
+    </div>
+</div>
+<section>
+
+
+
+    <section>
+        <div class="container">
+            <div class="toy-grid">
+                <div class="toy-item">
+                    <img src="image/19284.jpg" alt="Toy 1">
+                    <p>$10</p>
+                     <button class="buy-btn" onclick="buyItem('image/19284.jpg','Toy 1','$10')">Buy</button>
+                    <button class="wishlist-btn" onclick="addToWishlist('image/19284.jpg','Toy 1','$10')">Wishlist</button>
+
+                </div>
+                <div class="toy-item">
+                    <img src="image/19285.jpg" alt="Toy 2">
+                    <p>$15</p>
+                     <button class="buy-btn" onclick="buyItem('image/19284.jpg','Toy 2','$15')">Buy</button>
+                    <button class="wishlist-btn" onclick="addToWishlist('image/19284.jpg','Toy 2','$15')">Wishlist</button>
+
+                </div>
+                <div class="toy-item">
+                    <img src="image/19286.jpg" alt="Toy 3">
+                    <p> $20</p>
+                     <button class="buy-btn" onclick="buyItem('image/19286.jpg','Toy 3','$20')">Buy</button>
+                    <button class="wishlist-btn" onclick="addToWishlist('image/19286.jpg','Toy 3','$20')">Wishlist</button>
+
+                </div>
+            </div>
+        </div>
+        <section>
+    
+
+           
+
+
+
+
+
+
+
+
+</body>
+</html>
+<script>
+
+
+function showContent() {
+    var selectBox = document.getElementById("age-select");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    var contents = document.getElementsByClassName("content");
+    
+    for (var i = 0; i < contents.length; i++) {
+        contents[i].classList.remove("active");
+    }
+    
+    if (selectedValue) {
+        document.getElementById(selectedValue).classList.add("active");
+    }
+}
+
+
+
+function buyItem(image, name, price) {
+    location.href = `buy.html?image=${encodeURIComponent(image)}&name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}`;
+}
+
+
+
+
+
+function buyItem(image, name, price) {
+    location.href = `buy.html?image=${encodeURIComponent(image)}&name=${encodeURIComponent(name)}&price=${encodeURIComponent(price)}`;
+}
+
+function addToWishlist(image, name, price) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    wishlist.push({ image, name, price });
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    alert('Wishlist updated successfully!');
+}
+
+function showWishlist() {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    let wishlistDiv = document.getElementById('wishlist');
+    wishlistDiv.innerHTML = '';
+
+    wishlist.forEach(item => {
+        wishlistDiv.innerHTML += `
+            <div class="toy-item">
+                <img src="${item.image}" alt="${item.name}">
+                <p>${item.name}</p>
+                <p>${item.price}</p>
+            </div>
+        `;
+    });
+}
+
+
+</script>
